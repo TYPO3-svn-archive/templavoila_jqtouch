@@ -1,0 +1,17 @@
+# cat=jQTouch/general/a; type=string; label=Site Name: The overall name of the site.  This will appear on every page.
+siteTitle = jQTouch Application
+
+# cat=jQTouch/general/b; type=string; label=Site URL: The domain for the site with the trailing slash included.(ex. http://www.mysite.com/)
+siteURL =
+
+# cat=jQTouch/general/c; type=string; label=Site Icon: The icon to be used for the jQTouch application.
+siteIcon =
+
+# cat=jQTouch/general/d; type=options[Apple=apple, jQTouch=jqt]; label=Theme; The theme to be used by jQTouch (css and icons)
+jqtouch.theme = jqt
+
+# cat=jQTouch/general/e; type=options[Default=default, Black=black, Black Translucent=black-translucent]; label=Status Bar
+jqtouch.statusBar = default
+
+# cat=jQTouch/general/f; type=boolean; label=Debug mode: Disable JavaScript to ease debugging of layout
+jqtouch.debug =

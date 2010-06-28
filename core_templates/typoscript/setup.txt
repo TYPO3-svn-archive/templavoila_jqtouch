@@ -1,0 +1,110 @@
+###  Defines the page object and uses TemplaVoila to render the page ###
+page >
+page = PAGE
+page {
+	typeNum = 0
+	config {
+		# Set up XHTML Transitional output
+		xmlprologue = none
+		doctype = xhtml_trans
+
+		# Get rid of extra comments in the XHTML output.
+		disablePrefixComment = 1
+
+		# Turn off the page title since we'll manually add it later.
+		noPageTitle = 2
+
+		# Enabled indexed search indexing.
+		index_enable = 1
+  
+		# Clear the cache at midnight so that scheduled content appears on time.
+		cache_clearAtMidnight = 1
+
+		# Shorten email links using MD5 Hash.
+		notification_email_urlmode = 76
+
+		# Add the URL in front of local anchors to account for base URL.
+		prefixLocalAnchors = all
+	}
+
+	headerData {
+		# Set the new page title
+		1 = COA
+		1 {
+			wrap = <title> | </title>
+
+			1 = TEXT
+			1.data = TSFE:page|title
+			1.htmlSpecialChars = 1
+
+			# Don't repeat the same title twice.
+			2 = TEXT
+			2.noTrimWrap = | &#124; {$siteTitle} |
+			2.if {
+				value.data = TSFE:page|title
+				equals = {$siteTitle}
+				negate = 1
+			}
+		}
+
+		2 < additionalDocHeadCode
+
+	}
+	
+	includeCSS.tj_theme = EXT:templavoila_jqtouch/core_templates/js/jqtouch/themes/{$siteTheme}/theme.min.css
+}
+
+[globalVar = LIT:1 != {$jqtouch.debug}]
+page {
+	includeCSS.tj_jqtouch = EXT:templavoila_jqtouch/core_templates/js/jqtouch/jqtouch/jqtouch.min.css
+
+	includeJS.tf_jquery = EXT:templavoila_jqtouch/core_templates/js/jqtouch/jqtouch/jquery.1.3.2.min.js
+	includeJS.tf_jqtouch = EXT:templavoila_jqtouch/core_templates/js/jqtouch/jqtouch/jqtouch.min.js
+	includeJS.tf_jqtouch.type = application/x-javascript
+
+	jsInline {
+		1 = COA
+		1.wrap = $.jQTouch({ | });
+
+		1.1 = TEXT 
+		1.1.value (
+			//icon: 'jqtouch.png',
+			addGlossToIcon: true,
+			//startupScreen: 'startup.png',
+			statusBar: '{$jqtouch.statusBar}',
+		)
+
+		# Images to be preloaded
+		1.2 = COA
+		1.2.wrap = preloadImages: [ | ]
+		1.2 {
+			1 = IMG_RESOURCE
+			1 {
+				file = EXT:templavoila_jqtouch/core_templates/js/jqtouch/themes/{$jqtouch.theme}/img/loading.gif
+				stdWrap.wrap = '|',
+				stdWrap.required = 1
+			}
+			2 < .1
+			2.file = EXT:templavoila_jqtouch/core_templates/js/jqtouch/themes/{$jqtouch.theme}/img/chevron.png
+			3 < .1
+			3.file = EXT:templavoila_jqtouch/core_templates/js/jqtouch/themes/{$jqtouch.theme}/img/back_button_clicked.png
+			4 < .1
+			4.file = EXT:templavoila_jqtouch/core_templates/js/jqtouch/themes/{$jqtouch.theme}/img/button_clicked.png
+		}
+
+		2 < additionalJsInlineCode
+	}
+}
+[global]
+
+# Let TemplaVoila render the page content.
+
+page.10 = USER
+page.10.userFunc = tx_templavoila_pi1->main_page
+page.10.disableExplosivePreview = 1
+plugin.tx_templavoila_pi1.disableExplosivePreview = 1
+
+# Reconfigure CSS styled content  
+#lib.stdheader.stdWrap.dataWrap >
+#lib.stdheader.3.headerClass >
+tt_content.stdWrap.innerWrap >
