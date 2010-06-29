@@ -21,6 +21,12 @@ $GLOBALS['TBE_MODULES_EXT']['xMOD_tx_templavoila_cm1']['staticDataStructures'][]
 	'icon' => '',
 	'scope' => 2,
 );
+$GLOBALS['TBE_MODULES_EXT']['xMOD_tx_templavoila_cm1']['staticDataStructures'][] = array(
+	'title' => 'List',
+	'path' => $fceDSPath . 'list (fce).xml',
+	'icon' => '',
+	'scope' => 2,
+);
 
 // Only show the current FCE icon.
 t3lib_div::loadTCA('tt_content');

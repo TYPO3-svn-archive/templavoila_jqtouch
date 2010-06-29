@@ -1,3 +1,7 @@
+2010-06-29  Xavier Perseguers  <typo3@perseguers.ch>
+
+	* Replaced reference to jQTouch trunk with an official package (to get minimized files)
+
 2010-06-28  Xavier Perseguers  <typo3@perseguers.ch>
 
 	* Initial upload
