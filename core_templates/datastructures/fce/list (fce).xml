@@ -1,1 +1,192 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+	<meta type="array">
+		<langDisable>1</langDisable>
+	</meta>
+	<ROOT type="array">
+		<tx_templavoila type="array">
+			<title>ROOT</title>
+			<description>Inner-mapping to BODY.</description>
+			<tags>body:inner</tags>
+		</tx_templavoila>
+		<type>array</type>
+		<el type="array">
+			<field_type type="array">
+				<type>attr</type>
+				<tx_templavoila type="array">
+					<title>Type</title>
+					<description>Map this to UL</description>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>select</eType>
+					<tags>ul:attr:class</tags>
+					<TypoScript></TypoScript>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Type</label>
+					<config type="array">
+						<type>select</type>
+						<items type="array">
+							<numIndex index="0" type="array">
+								<numIndex index="0">Rounded</numIndex>
+								<numIndex index="1">rounded</numIndex>
+							</numIndex>
+							<numIndex index="1" type="array">
+								<numIndex index="0">Edge to edge</numIndex>
+								<numIndex index="1">edgetoedge</numIndex>
+							</numIndex>
+						</items>
+						<default>0</default>
+					</config>
+				</TCEforms>
+			</field_type>
+			<field_ul type="array">
+				<type>array</type>
+				<tx_templavoila type="array">
+					<title>List</title>
+					<description>Map this to the UL tag</description>
+					<eType>input</eType>
+					<tags>ul:inner</tags>
+					<preview></preview>
+				</tx_templavoila>
+				<section>1</section>
+				<el type="array">
+					<field_li type="array">
+						<type>array</type>
+						<tx_templavoila type="array">
+							<title>Item</title>
+							<description>Map this to UL</description>
+							<eType>input</eType>
+							<tags>li:outer</tags>
+							<TypoScript></TypoScript>
+							<proc type="array">
+								<int>0</int>
+								<HSC>0</HSC>
+								<stdWrap></stdWrap>
+							</proc>
+							<preview>disable</preview>
+						</tx_templavoila>
+						<TCEforms type="array">
+							<label></label>
+							<config type="array">
+							</config>
+						</TCEforms>
+						<el type="array">
+							<field_type type="array">
+								<type>attr</type>
+								<tx_templavoila type="array">
+									<title>Type</title>
+									<description>Map this to the A tag</description>
+									<sample_data type="array">
+										<numIndex index="0"></numIndex>
+									</sample_data>
+									<eType>select</eType>
+									<tags>li:attr:class</tags>
+									<TypoScript></TypoScript>
+									<proc type="array">
+										<int>0</int>
+										<HSC>0</HSC>
+										<stdWrap></stdWrap>
+									</proc>
+									<preview></preview>
+								</tx_templavoila>
+								<TCEforms type="array">
+									<label>Type</label>
+									<config type="array">
+										<type>select</type>
+										<items type="array">
+											<numIndex index="0" type="array">
+												<numIndex index="0"></numIndex>
+												<numIndex index="1"></numIndex>
+											</numIndex>
+											<numIndex index="1" type="array">
+												<numIndex index="0">Forward</numIndex>
+												<numIndex index="1">forward</numIndex>
+											</numIndex>
+										</items>
+										<default>0</default>
+									</config>
+								</TCEforms>
+							</field_type>
+							<field_title type="array">
+								<tx_templavoila type="array">
+									<title>Title</title>
+									<description>Map this to A</description>
+									<sample_data type="array">
+										<numIndex index="0"></numIndex>
+									</sample_data>
+									<eType>input</eType>
+									<tags>a:inner</tags>
+									<proc type="array">
+										<HSC type="integer">1</HSC>
+										<stdWrap></stdWrap>
+									</proc>
+									<preview></preview>
+									<TypoScript type="NULL"></TypoScript>
+								</tx_templavoila>
+								<TCEforms type="array">
+									<label>Title</label>
+									<config type="array">
+										<type>input</type>
+										<size>48</size>
+										<eval>trim</eval>
+									</config>
+								</TCEforms>
+							</field_title>
+							<field_link type="array">
+								<type>attr</type>
+								<tx_templavoila type="array">
+									<title>Link</title>
+									<description>Map this to the A tag</description>
+									<sample_data type="array">
+										<numIndex index="0"></numIndex>
+									</sample_data>
+									<eType>link</eType>
+									<tags>a:attr:href</tags>
+									<TypoScript><![CDATA[
+10 = TEXT
+10.typolink.parameter.current = 1
+10.typolink.returnLast = url
+									]]></TypoScript>
+									<proc type="array">
+										<int>0</int>
+										<HSC>0</HSC>
+										<stdWrap></stdWrap>
+									</proc>
+									<preview>disable</preview>
+								</tx_templavoila>
+								<TCEforms type="array">
+									<label>Link</label>
+									<config type="array">
+										<type>input</type>
+										<size>15</size>
+										<max>256</max>
+										<checkbox></checkbox>
+										<eval>trim</eval>
+										<wizards type="array">
+											<_PADDING type="integer">2</_PADDING>
+											<link type="array">
+												<type>popup</type>
+												<title>Link</title>
+												<icon>link_popup.gif</icon>
+												<script>browse_links.php?mode=wizard</script>
+												<JSopenParams>height=300,width=500,status=0,menubar=0,scrollbars=1</JSopenParams>
+											</link>
+										</wizards>
+									</config>
+								</TCEforms>
+							</field_link>
+						</el>
+					</field_li>
+				</el>
+			</field_ul>
+		</el>
+	</ROOT>
+</T3DataStructure>
