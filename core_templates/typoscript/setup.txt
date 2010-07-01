@@ -51,7 +51,7 @@ page {
 
 	}
 	
-	includeCSS.tj_theme = EXT:templavoila_jqtouch/core_templates/js/jqtouch/themes/{$siteTheme}/theme.min.css
+	includeCSS.tj_theme = EXT:templavoila_jqtouch/core_templates/js/jqtouch/themes/{$jqtouch.theme}/theme.min.css
 }
 
 [globalVar = LIT:1 != {$jqtouch.debug}]
