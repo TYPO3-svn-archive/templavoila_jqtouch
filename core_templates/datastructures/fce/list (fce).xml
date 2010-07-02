@@ -15,7 +15,7 @@
 				<type>attr</type>
 				<tx_templavoila type="array">
 					<title>Type</title>
-					<description>Map this to UL</description>
+					<description>Map this to the UL tag</description>
 					<sample_data type="array">
 						<numIndex index="0"></numIndex>
 					</sample_data>
@@ -62,7 +62,7 @@
 						<type>array</type>
 						<tx_templavoila type="array">
 							<title>Item</title>
-							<description>Map this to UL</description>
+							<description>Map this to the LI tag</description>
 							<eType>input</eType>
 							<tags>li:outer</tags>
 							<TypoScript></TypoScript>
@@ -83,7 +83,7 @@
 								<type>attr</type>
 								<tx_templavoila type="array">
 									<title>Type</title>
-									<description>Map this to the A tag</description>
+									<description>Map this to the LI tag</description>
 									<sample_data type="array">
 										<numIndex index="0"></numIndex>
 									</sample_data>
@@ -118,7 +118,7 @@
 							<field_title type="array">
 								<tx_templavoila type="array">
 									<title>Title</title>
-									<description>Map this to A</description>
+									<description>Map this to the A tag</description>
 									<sample_data type="array">
 										<numIndex index="0"></numIndex>
 									</sample_data>
